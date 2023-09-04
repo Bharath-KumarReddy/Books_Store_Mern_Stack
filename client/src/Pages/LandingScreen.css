@@ -1,0 +1,42 @@
+/* LandingScreen.css */
+
+.landing-page {
+  background-color: black;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+/* Your previous .section styles */
+/* .section {
+  text-align: center;
+  font-size: 3em;
+  background-position: center center;
+  background-repeat: none;
+  background-size: cover;
+} */
+
+
+/* 
+
+.fp-watermark {
+  display: none;
+} */
+
+
+
+#section3 {
+
+  background-image: url('https://raw.githubusercontent.com/alvarotrigo/fullPage.js/master/examples/imgs/bg1.jpg');
+  
+}
+
+
+
+ #section4 {
+  background-image: url('https://raw.githubusercontent.com/alvarotrigo/fullPage.js/master/examples/imgs/bg2.jpg');
+}  
+
+/* Additional styles you provided */
+/* You can place these styles below the existing styles */
+
+/* Add any additional styles here */

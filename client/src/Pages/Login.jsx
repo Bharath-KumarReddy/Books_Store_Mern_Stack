@@ -17,7 +17,17 @@ function Login() {
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      
+      const {email , password} =values;
+      if(email === ''){
+        toast.error("email is required",{
+          position : "bottom-right"
+        })
+      }else if(password === ''){
+        toast.error("password is required",{
+          position : "bottom-right"
+        })
+      }else {
+
         const { data } = await axios.post(
           "http://localhost:5000/api/auth/login",
           {
@@ -41,7 +51,9 @@ function Login() {
             }
           }
         
-      } 
+      }
+      }
+        
     } catch (ex) {
       console.log(ex);
     }

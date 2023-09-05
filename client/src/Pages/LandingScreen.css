@@ -1,4 +1,4 @@
-/* LandingScreen.css */
+
 
 .landing-page {
   background-color: black;
@@ -6,21 +6,7 @@
   overflow: hidden;
 }
 
-/* Your previous .section styles */
-/* .section {
-  text-align: center;
-  font-size: 3em;
-  background-position: center center;
-  background-repeat: none;
-  background-size: cover;
-} */
 
-
-/* 
-
-.fp-watermark {
-  display: none;
-} */
 
 
 
@@ -36,7 +22,3 @@
   background-image: url('https://raw.githubusercontent.com/alvarotrigo/fullPage.js/master/examples/imgs/bg2.jpg');
 }  
 
-/* Additional styles you provided */
-/* You can place these styles below the existing styles */
-
-/* Add any additional styles here */

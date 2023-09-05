@@ -2,36 +2,53 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 const AddBooks = () => {
   const [bookName, setBookName] = useState('');
   const [author, setAuthor] = useState('');
   const [description, setDescription] = useState('');
-  const [price, setPrice] = useState('');
+  const [price, setprice] = useState('');
   const [image , setImage] = useState('');
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-
+  
     try {
-      const response = await axios.post('http://localhost:5000/api/books/addBook', {
-        name: bookName,
-        author,
-        description,
-        price: parseFloat(price), 
-        image
-      });
-
-      console.log('Book added successfully:', response.data.newBook);
-      
-      setBookName('');
-      setAuthor('');
-      setDescription('');
-      setPrice('');
-      setImage('');
+      if (bookName === '') {
+        toast.error("Book Name is required", {
+          position: "bottom-right"
+        });
+      } else if (author === '') {
+        toast.error("Author is required", {
+          position: "bottom-right"
+        });
+      } else if (description === '') {
+        toast.error("Description is required", {
+          position: "bottom-right"
+        });
+      } else {
+        const response = await axios.post('http://localhost:5000/api/books/addBook', {
+          name: bookName,
+          author,
+          description,
+          price: parseFloat(price),
+          image
+        });
+  
+        console.log('Book added successfully:', response.data.newBook);
+  
+        setBookName('');
+        setAuthor('');
+        setDescription('');
+        setprice('');
+        setImage('');
+      }
     } catch (error) {
       console.error('Error adding book:', error);
     }
   };
+  
 
   return (
 <>
@@ -76,14 +93,14 @@ const AddBooks = () => {
                 ></textarea>
               </div>
               <div className="form-group" style={{ color: 'orange' }}>
-                <label htmlFor="price">Price</label>
+                <label htmlFor="price">price</label>
                 <input
                   type="number"
                   className="form-control"
                   id="price"
                   placeholder="Enter book price"
                   value={price}
-                  onChange={(e) => setPrice(e.target.value)}
+                  onChange={(e) => setprice(e.target.value)}
                 />
               </div>
               <div className="form-group">
@@ -103,6 +120,7 @@ const AddBooks = () => {
         </div>
       </div>
     </div>
+    <ToastContainer />
     <Footer/>
     </>
   );

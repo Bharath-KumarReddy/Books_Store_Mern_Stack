@@ -6,7 +6,7 @@ const Section1 = () => {
       
       <div className="text-center" style={{ marginTop: "250px" }}>
         <h1 style={{ color: "white" }}>Welcome to<span style={{ color: "red" }}> Books Store</span></h1>
-        <p style={{ color: "black" }}>This website is about <span style={{ color: "gold" }}>Books</span></p>
+        <p style={{ color: "black" }}>You can read your interested<span style={{ color: "gold" }}>Books</span></p>
       </div>
       <div style={{ marginLeft: "-400px" }}></div>
     </div>

@@ -35,7 +35,7 @@ const SearchBooks = () => {
    <>
    <Navbar1/>
     <div className="container">
-      <h2 style={{ color: 'orange' }}>Search Books</h2>
+      <h2 style={{ color: 'orange' }}>Enter any book Name</h2>
       <div className="input-group mb-3">
         <input
           type="text"

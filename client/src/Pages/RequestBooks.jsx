@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import axios from 'axios'; // Import Axios
+import axios from 'axios'; 
 import Navbar1 from './Navbar1';
 import { ToastContainer , toast } from 'react-toastify';
 import { useAuth } from '../context/AuthContext';
@@ -16,28 +16,42 @@ const RequestBooks = () => {
     e.preventDefault();
 //  console.log("ouside try")
     try {
-  
-    //   console.log("entered try")
+        if(name ===''){
+          toast.error("name is required",{
+            position : "bottom-right"
+          })
+        }else if(author === ''){
+          toast.error("author is required",{
+            position : "bottom-right"
+          })
+        }else if(username === ''){
+          toast.error("username is required",{
+            position : "bottom-right"
+          })
+        } else {
+          //   console.log("entered try")
      const response = await axios.post('http://localhost:5000/api/books/requestbook', {
-        email ,
-        name,
-        author,
-        username
-      });
+      email ,
+      name,
+      author,
+      username
+    });
 
-    //   console.log("after post request")
-      const data= response.data;
-       console.log(response.data);
+  //   console.log("after post request")
+    const data= response.data;
+     console.log(response.data);
 
+  
+    // setEmail('');
+    setName('');
+    setAuthor('');
+    setUserName('');
+  //   toast.success("Book Request Successfully!"<{
+  //     position : "bottom-right"
+  //   })
+    alert('Book request submitted successfully!');
+        }
     
-      // setEmail('');
-      setName('');
-      setAuthor('');
-      setUserName('');
-    //   toast.success("Book Request Successfully!"<{
-    //     position : "bottom-right"
-    //   })
-      alert('Book request submitted successfully!');
     } catch (error) {
       console.error('Error submitting book request:', error);
      console.log(error.response);   
@@ -49,15 +63,15 @@ const RequestBooks = () => {
     <>
     {/* <ToastContainer/> */}
     <Navbar1 />
-    <div className="login-container"> {/* Use the same class for styling */}
-      <div className="login-card"> {/* Use the same class for styling */}
+    <div className="login-container"> 
+      <div className="login-card"> 
         <div className="card mt-5">
           <div className="card-header">
-            <h2 className="text-center" style={{ color: 'orange' }}>Request a Book</h2> {/* Apply the color style */}
+            <h2 className="text-center" style={{ color: 'orange' }}>Request a Book</h2> 
           </div>
           <form onSubmit={handleSubmit}>
             <div className="mb-3">
-              <label htmlFor="username" className="form-label" style={{ color: 'blue' }}>User Name</label> {/* Apply the color style */}
+              <label htmlFor="username" className="form-label" style={{ color: 'blue' }}>User Name</label>
               <input
                 type="text"
                 className="form-control"
@@ -70,7 +84,7 @@ const RequestBooks = () => {
               />
             </div>
             <div className="mb-3">
-              <label htmlFor="email" className="form-label" style={{ color: 'blue' }}>Email</label> {/* Apply the color style */}
+              <label htmlFor="email" className="form-label" style={{ color: 'blue' }}>Email</label> 
               <input
                 type="text"
                 className="form-control"
@@ -83,7 +97,7 @@ const RequestBooks = () => {
               />
             </div>
             <div className="mb-3">
-              <label htmlFor="author" className="form-label" style={{ color: 'blue' }}>Author</label> {/* Apply the color style */}
+              <label htmlFor="author" className="form-label" style={{ color: 'blue' }}>Author</label> 
               <input
                 type="text"
                 className="form-control"
@@ -96,7 +110,7 @@ const RequestBooks = () => {
               />
             </div>
             <div className="mb-3">
-              <label htmlFor="name" className="form-label" style={{ color: 'blue' }}>Book name</label> {/* Apply the color style */}
+              <label htmlFor="name" className="form-label" style={{ color: 'blue' }}>Book name</label> 
               <input
                 type="text"
                 className="form-control"

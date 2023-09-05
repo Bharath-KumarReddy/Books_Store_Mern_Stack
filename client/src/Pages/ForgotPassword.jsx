@@ -26,24 +26,31 @@ function ForgotPassword() {
   const sendOtp = async (event) => {
     
     try {
-      const  response  = await axios.post(
-        "http://localhost:5000/api/auth/sendemail",
-        {
-          email,
+      if(email === ''){
+        toast.error("email is required",{
+          position : "bottom-right"
+        })
+      } else {
+        const  response  = await axios.post(
+          "http://localhost:5000/api/auth/sendemail",
+          {
+            email,
+          }
+        )
+        console.log(response);
+        const data1 = response;
+        const data = response.data.data;
+        if (data1) {
+          generateSuccess("OTP sent successfully!");
+          setOtpSent(true);
+          setEmail('');
+        } 
+        
+        else {
+          generateError("Failed to send OTP.");
         }
-      )
-      console.log(response);
-      const data1 = response;
-      const data = response.data.data;
-      if (data1) {
-        generateSuccess("OTP sent successfully!");
-        setOtpSent(true);
-        setEmail('');
-      } 
-      
-      else {
-        generateError("Failed to send OTP.");
       }
+      
     } catch (ex) {
       console.log(ex);
     }

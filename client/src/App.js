@@ -25,7 +25,7 @@ function App() {
     <BrowserRouter>
     
     <Routes>
-           {/* uncomment all the routes except this line  */}
+           
 
           <Route path="/" element = {<LandingScreen/>}/>
            <Route path="/userpage" element={<UserPage/>}/>

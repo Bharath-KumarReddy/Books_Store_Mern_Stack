@@ -68,10 +68,10 @@ const UserPage = () => {
   return (
     <>
      <Navbar1/> 
-      <div className='bg-dark' style={{ minHeight: '91.5vh' }}>
+      <div className='' style={{ minHeight: '91.5vh' , backgroundColor:'whitesmoke'}}>
         
         <div className='d-flex justify-content-center align-items-center py-3'>
-        <h2 style={{ color: "white" }} className='p-2'>Books</h2>
+        <h2 style={{ color: "black" }} className='p-2'>Books</h2>
           <h3 style={{ color: 'orange' }}>Page</h3>
         </div>
         <div className='container  mt-3'>
